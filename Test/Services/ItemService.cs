@@ -18,6 +18,7 @@ namespace Test.Services
             var dbItem = _context.Items;
             //item.itemId = dbItem.Count + 1;
             dbItem.Add(item);
+            _context.SaveChanges();
         }
         //get
         public List<Inventory> GetAll()
@@ -88,6 +89,7 @@ namespace Test.Services
                             item.Quantity -= quantityTrade;
                             //crear un nuevo item con el resultado de la resta
                             Inventory item2 = new Inventory();
+                            item2.itemId = item.itemId;
                             item2.Name = item.Name;
                             item2.Description = item.Description;
                             item2.Quantity = quantityTrade;
@@ -96,16 +98,13 @@ namespace Test.Services
                         }
                         else
                         {
-                            if(item.Quantity-quantityTrade < 0)
-                            {
-                                break;
-                            }
-                            else
+                            if(item.Quantity-quantityTrade > 0)
                             {
                                 //borrar
                                 dbItem.Remove(item);
                                 _context.SaveChanges();
                             }
+                            
                         }   
                     }
                 }
