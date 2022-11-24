@@ -10,7 +10,7 @@ namespace Test.Controllers
     public class InventoryController : ControllerBase
     {
         private readonly IItemService ItemService;
-        public InventoryController(ItemService itemService)
+        public InventoryController(IItemService itemService)
         {
             ItemService = itemService;
         }
