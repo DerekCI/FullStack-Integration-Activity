@@ -43,9 +43,9 @@ namespace Test.Controllers
         }
 
         [HttpPut("UpdateItems")]
-        public IActionResult UpdateItem(Inventory itemToUpdate, int userId)
+        public IActionResult UpdateItem(Inventory itemToUpdate, int itemId)
         {
-            ItemService.UpdateItem(itemToUpdate, userId);
+            ItemService.UpdateItem(itemToUpdate, itemId);
             return Ok();
         }
         [HttpPut("TradeItem")]

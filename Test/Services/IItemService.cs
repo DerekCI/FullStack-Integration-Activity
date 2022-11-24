@@ -7,14 +7,14 @@ namespace Test.Services
     
         void AddItem(Inventory item);
        
-        void UpdateItem(Inventory item, int userId);
+        void UpdateItem(Inventory item, int itemId);
         void TradeItem(int idItem, int userId, int userId2, int quantityTrade);
       
         Inventory GetItem(int id);
       
         List<Inventory> GetAll();
      
-        Inventory GetByUser(int userId);
+        List<Inventory> GetByUser(int userId);
       
         void DeleteItem(int id);
 

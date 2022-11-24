@@ -27,19 +27,20 @@ namespace Test.Services
             return dbItem;
         }
 
-        public Inventory GetByUser(int userId)
+        public List<Inventory> GetByUser(int userId)
         {
             var dbUser = _context.Users.ToList();
             var dbItem = _context.Items.ToList();
-            Inventory emptyItem = new Inventory();
-            foreach(Inventory item in dbItem)
+            List<Inventory> items = new List<Inventory>();
+
+            foreach (Inventory item in dbItem)
             {
                 if(item.userId == userId)
                 {
-                    return item;
+                    items.Add(item);
                 }
             }
-            return emptyItem;
+            return items;
         }
 
         //Get
@@ -57,13 +58,13 @@ namespace Test.Services
             return emptyItem;
         }
         //put
-        public void UpdateItem(Inventory itemToUpdate, int userId)
+        public void UpdateItem(Inventory itemToUpdate, int itemId)
         {
             var dbItem = _context.Items;
 
             foreach (Inventory item in dbItem)
             {
-                if (item.itemId == userId)
+                if (item.itemId == itemId)
                 {
 
                     item.itemId = itemToUpdate.itemId;
@@ -71,6 +72,7 @@ namespace Test.Services
                     item.Description = itemToUpdate.Description;
                     item.Quantity = itemToUpdate.Quantity;
                     _context.SaveChanges();
+                    
                 }
             }
         }
@@ -89,7 +91,7 @@ namespace Test.Services
                             item.Quantity -= quantityTrade;
                             //crear un nuevo item con el resultado de la resta
                             Inventory item2 = new Inventory();
-                            item2.itemId = item.itemId;
+                            //item2.itemId = item.itemId;
                             item2.Name = item.Name;
                             item2.Description = item.Description;
                             item2.Quantity = quantityTrade;
