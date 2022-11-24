@@ -95,6 +95,7 @@ namespace Test.Services
                             item2.Quantity = quantityTrade;
                             item2.userId = userToTrade;
                             dbItem.Add(item2);
+                            _context.SaveChanges();
                         }
                         else
                         {
