@@ -84,9 +84,15 @@ namespace Test.Services
                     {
                         if(item.Quantity-quantityTrade > 0)
                         {
+                            
+                            item.Quantity -= quantityTrade;
                             //crear un nuevo item con el resultado de la resta
-                            item.userId = userToTrade;
-                            dbItem.Add(item);
+                            Inventory item2 = new Inventory();
+                            item2.Name = item.Name;
+                            item2.Description = item.Description;
+                            item2.Quantity = quantityTrade;
+                            item2.userId = userToTrade;
+                            dbItem.Add(item2);
                         }
                         else
                         {
