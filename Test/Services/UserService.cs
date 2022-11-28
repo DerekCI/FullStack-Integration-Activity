@@ -23,16 +23,10 @@ namespace Test.Services
         }
 
         //GET
-        public User GetUser(int id)
+        public List<User> GetUser()
         {
             var dbUser = _context.Users.ToList();
-            User emptyUser = new User();
-            foreach(User user in dbUser){
-                if(user.UserId == id){
-                    return user;
-                }
-            }
-            return emptyUser;
+            return dbUser;
 
         }
        

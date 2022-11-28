@@ -23,10 +23,10 @@ namespace Test.Controllers
         }
 
         [HttpGet("GetUser")]
-        public IActionResult GetUser(int id)
+        public IActionResult GetUser()
         {
 
-            return Ok(UserService.GetUser(id));
+            return Ok(UserService.GetUser());
         }
 
         [HttpPut("UpdateUser")]

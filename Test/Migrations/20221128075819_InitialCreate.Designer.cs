@@ -10,7 +10,7 @@ using Test.Data;
 namespace Test.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221123205022_InitialCreate")]
+    [Migration("20221128075819_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

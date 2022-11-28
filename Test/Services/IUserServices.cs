@@ -5,7 +5,7 @@ namespace Test.Services
     public interface IUserServices
     {
         void AddUser(User user);
-        User GetUser(int id);
+        List<User> GetUser();
         void UpdateUser(User user, int id);
         void DeleteUser(int id);
     }
